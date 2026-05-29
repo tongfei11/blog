@@ -1,16 +1,18 @@
 {
   "name": "hexo-theme-indigo-md3",
   "version": "1.0.0",
-  "description": "A modern Material Design 3 (MD3) theme for Hexo.",
+  "description": "基于 Material Design 3 (MD3) 改版的高颜值 Hexo 博客主题（Forked from yscoder/hexo-theme-indigo）",
+  "homepage": "https://tongfei11.github.io/blog",
   "keywords": [
     "hexo",
     "theme",
     "material-design-3",
-    "vanilla-css"
+    "vanilla-css",
+    "hexo-theme-indigo"
   ],
   "author": {
-    "name": "Antigravity",
-    "email": "antigravity@gemini.google"
+    "name": "Thomas Tung",
+    "email": "tongfei1991@gmail.com"
   },
   "license": "MIT"
 }

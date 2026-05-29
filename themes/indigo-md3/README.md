@@ -1,6 +1,6 @@
 # hexo-theme-indigo-md3
 
-基于 Material Design 3 (MD3) 设计规范改版的高颜值、极简响应式 Hexo 博客主题。
+本主题基于 [yscoder/hexo-theme-indigo](https://github.com/yscoder/hexo-theme-indigo) 进行了深度改版与升级，全面迁移至 Material Design 3 (MD3) 设计规范，是一款高颜值、极简响应式的 Hexo 博客主题。
 
 ---
 
@@ -27,7 +27,14 @@
 
 ## 🛠️ 安装与启用
 
-1. 将本主题克隆/解压至 Hexo 博客的 `themes/indigo-md3` 目录下。
+1. 将本主题克隆至 Hexo 博客的 `themes/indigo-md3` 目录下：
+   ```bash
+   git clone https://github.com/tongfei11/hexo-theme-indigo-md3.git themes/indigo-md3
+   ```
+   或者将其作为 Git 子模块（Submodule）添加：
+   ```bash
+   git submodule add https://github.com/tongfei11/hexo-theme-indigo-md3.git themes/indigo-md3
+   ```
 2. 打开 Hexo 博客根目录下的 `_config.yml` 配置文件。
 3. 找到 `theme` 项，并将其修改为 `indigo-md3`：
    ```yaml
@@ -94,7 +101,7 @@ avatar_link: /              # 点击头像跳转地址
 brand: /img/brand.jpg       # 抽屉导航背景图
 favicon: /favicon.ico       # 浏览器标签栏图标路径
 since_year: 2020            # 博客创建年份（展示在页脚）
-about: "A developer exploring web technologies and Material Design."
+about: "Thomas Tung - A developer exploring web technologies and Material Design 3."
 ```
 
 ### 4. 赞赏与打赏模态弹窗
