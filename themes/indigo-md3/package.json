@@ -1,0 +1,16 @@
+{
+  "name": "hexo-theme-indigo-md3",
+  "version": "1.0.0",
+  "description": "A modern Material Design 3 (MD3) theme for Hexo.",
+  "keywords": [
+    "hexo",
+    "theme",
+    "material-design-3",
+    "vanilla-css"
+  ],
+  "author": {
+    "name": "Antigravity",
+    "email": "antigravity@gemini.google"
+  },
+  "license": "MIT"
+}

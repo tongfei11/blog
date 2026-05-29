@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="<%= page.lang || config.language || 'en' %>">
+<%- partial('_partial/head') %>
+<body>
+    <div id="loading" class="md-loading-bar"></div>
+    <%- partial('_partial/menu') %>
+    <div id="mask" class="md-scrim"></div>
+    <main id="main">
+        <%- body %>
+        <%- partial('_partial/footer') %>
+    </main>
+    <%- partial('_partial/after-footer') %>
+    <%- partial('_partial/script') %>
+</body>
+</html>

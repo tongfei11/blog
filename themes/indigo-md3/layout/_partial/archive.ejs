@@ -1,0 +1,14 @@
+<div class="waterfall-item">
+  <article class="md-card archive-article">
+    <div class="post-meta">
+      <%- partial('post/date', { post: post, date_format: date_format}) %>
+      <%- partial('post/category', { post: post }) %>
+    </div>
+    <%- partial('post/title', { post: post, hasLink: true }) %>
+    <% if(post.tags && post.tags.length){ %>
+    <div class="post-footer">
+        <%- partial('post/tag', { post: post }) %>
+    </div>
+    <% } %>
+  </article>
+</div>

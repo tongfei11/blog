@@ -1,0 +1,93 @@
+# hexo-theme-indigo-md3 Configuration
+
+# Menu structure
+# Key matches the name of the Material Symbol icon (e.g., 'home', 'archive', 'sell', 'category', 'code')
+menu:
+  home:
+    text: Home
+    url: /
+  archive:
+    text: Archives
+    url: /archives
+  sell:
+    text: Tags
+    url: /tags
+  category:
+    text: Categories
+    url: /categories
+  github:
+    text: GitHub
+    url: https://github.com/tongfei11
+    target: _blank
+
+# User brand details
+avatar: /img/avatar.jpg
+avatar_link: /
+brand: /img/brand.jpg
+favicon: /favicon.ico
+email: thomas@example.com
+since_year: 2020
+about: "A developer exploring web technologies and Material Design."
+
+# Typography & Color defaults
+# Theme Color Scheme Configuration
+# Available default schemes:
+#   1. indigo (Default - Violet/Indigo)
+#   2. emerald (Green / Nature)
+#   3. terracotta (Red-Orange / Earthy)
+#   4. amber (Golden Yellow / Warm)
+#   5. ocean (Blue / Cool & Calm)
+#   6. rose (Pink / Soft & Vibrant)
+#   7. custom (Uses the custom values defined below)
+theme_color:
+  scheme: ocean # choices: indigo, emerald, terracotta, amber, ocean, rose, custom
+  
+  # Custom配色方案基础（仅当 scheme 为 custom 时生效）
+  # 可以自定义 Light 和 Dark 模式下的 4 个配色变量：
+  custom:
+    light:
+      primary: '#4F52B2'
+      on_primary: '#FFFFFF'
+      primary_container: '#E2DFFF'
+      on_primary_container: '#0B0067'
+    dark:
+      primary: '#BEC2FF'
+      on_primary: '#1B1F83'
+      primary_container: '#363999'
+      on_primary_container: '#E2DFFF'
+
+
+# Layout Options
+excerpt_render: false
+excerpt_length: 200
+excerpt_link: Continue Reading...
+show_last_updated: true
+share: false
+search: true
+hideMenu: true
+
+# Table of Contents
+toc:
+  list_number: true
+
+# Reward/Donation Modal
+reward: false
+
+# "Busuanzi" Analytics
+visit_counter:
+  site_uv: "Unique Visitors: "
+  site_pv: "Total Page Views: "
+
+# Comments Integrations
+disqus_shortname: false
+uyan_uid: false
+gitment: false
+gitalk: false
+
+valine:
+  enable: false
+  appId: ""
+  appKey: ""
+  placeholder: "Leave a comment..."
+  avatar: mm
+  pageSize: 10

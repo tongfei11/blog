@@ -1,0 +1,33 @@
+<header class="top-header" id="header">
+    <div class="flex-row flex-middle">
+        <a href="javascript:;" class="md-icon-button on" id="menu-toggle" title="Menu">
+          <span class="material-symbols-outlined">menu</span>
+        </a>
+        <div class="flex-col header-title ellipsis"><%=title %></div>
+        
+        <% if(theme.search){ %>
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="md-icon-button" id="back" title="Back">
+                <span class="material-symbols-outlined">arrow_back</span>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search...">
+            <a href="javascript:;" class="md-icon-button" id="search" title="Search">
+                <span class="material-symbols-outlined">search</span>
+            </a>
+        </div>
+        <% }%>
+
+        <% if(theme.share && (is_post() || page.layout === 'page')){ %>
+        <a href="javascript:;" class="md-icon-button" id="menuShare" title="Share">
+            <span class="material-symbols-outlined">share</span>
+        </a>
+        <% } %>
+
+        <% 
+        var feedPath = (config.feed && config.feed.path) ? url_for(config.feed.path) : url_for('/atom.xml');
+        %>
+        <a href="javascript:;" class="md-icon-button" id="rss-button" title="RSS Feed" data-url="<%- feedPath %>">
+            <span class="material-symbols-outlined">rss_feed</span>
+        </a>
+    </div>
+</header>

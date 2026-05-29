@@ -1,0 +1,17 @@
+<%- partial('_partial/header', {
+    title: config.title,
+    hdClass: 'index-header'
+}) %>
+<div class="container body-wrap">
+    <div class="post-list">
+    <% page.posts.each(function(post){ %>
+        <div class="post-list-item fade">
+            <%- partial('_partial/index-item', {
+                post: post,
+                index: true
+            }) %>
+        </div>
+    <% }) %>
+    </div>
+    <%- partial('_partial/paginator') %>
+</div>

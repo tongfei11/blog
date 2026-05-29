@@ -1,0 +1,19 @@
+<div class="search-panel" id="search-panel">
+    <div class="search-panel-container">
+        <ul class="search-result" id="search-result"></ul>
+    </div>
+</div>
+<template id="search-tpl">
+<li class="search-item">
+    <a href="{path}" class="search-item-link flex-row flex-middle">
+        <span class="material-symbols-outlined search-item-icon">description</span>
+        <div class="flex-col content-wrap">
+            <div class="title ellipsis" title="{title}">{title}</div>
+            <div class="meta flex-row flex-middle">
+                <time class="time">{date}</time>
+                <div class="tags ellipsis">{tags}</div>
+            </div>
+        </div>
+    </a>
+</li>
+</template>

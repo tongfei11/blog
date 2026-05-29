@@ -1,0 +1,21 @@
+<footer class="footer">
+    <div class="top">
+        <p>
+            <% if ((config.feed) && (config.feed.path.length)) { %>
+                <span><a href="<%- url_for(config.feed.path) %>" target="_blank" class="rss" title="RSS"><span class="material-symbols-outlined">rss_feed</span></a></span>
+            <% } %>
+            <span>This blog is licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a>.</span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p>
+            <span>&copy; <%if (theme.since_year && theme.since_year < date(new Date(), 'YYYY')) {%><%- theme.since_year %> - <%}%><%- date(new Date(), 'YYYY') %> <%-config.author %></span>
+            <span>
+                <% if(theme.ICP_license) {%>
+                <a href="http://beian.miit.gov.cn/" target="_blank"><%- theme.ICP_license %></a> | 
+                <% } %>
+                Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> &bull; Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo-md3</a>
+            </span>
+        </p>
+    </div>
+</footer>

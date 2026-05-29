@@ -1,0 +1,121 @@
+<aside id="menu" <% if((is_post() || page.layout === 'page') && theme.hideMenu){ %>class="hide"<% } %> >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="md-icon-button" id="menu-off" title="Close Drawer">
+        <span class="material-symbols-outlined">close</span>
+    </a>
+    <%
+      var useSvgBrand = !theme.brand || theme.brand === '/img/brand.jpg' || theme.brand === '/img/brand.png';
+      
+      var avatarUrl = theme.avatar;
+      var hasCustomAvatar = theme.avatar && theme.avatar !== '/img/avatar.jpg' && theme.avatar !== '/img/avatar.png';
+      if (!hasCustomAvatar) {
+          var githubUrl = theme.menu && theme.menu.github && theme.menu.github.url;
+          if (githubUrl) {
+              var match = githubUrl.match(/github\.com\/([^\/]+)/);
+              if (match) {
+                  avatarUrl = 'https://github.com/' + match[1] + '.png';
+                  hasCustomAvatar = true;
+              }
+          }
+      }
+      var useSvgAvatar = !hasCustomAvatar;
+    %>
+    <div class="brand-wrap <%= useSvgBrand ? 'has-svg-bg' : '' %>" style="position: relative; overflow: hidden; <% if (!useSvgBrand) { %>background-image:url(<%- url_for(theme.brand) %>)<% } %>">
+      <% if (useSvgBrand) { %>
+        <!-- Adaptive vector-based color brand background -->
+        <svg class="brand-bg" viewBox="0 0 280 150" preserveAspectRatio="xMidYMid slice" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0;">
+            <defs>
+                <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="var(--md-sys-color-primary-container)" />
+                    <stop offset="50%" stop-color="var(--md-sys-color-secondary-container)" />
+                    <stop offset="100%" stop-color="var(--md-sys-color-surface-variant)" />
+                </linearGradient>
+                <linearGradient id="waveGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="var(--md-sys-color-primary)" />
+                    <stop offset="100%" stop-color="var(--md-sys-color-secondary)" />
+                </linearGradient>
+                <linearGradient id="waveGrad2" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stop-color="var(--md-sys-color-secondary)" stop-opacity="0.3" />
+                    <stop offset="100%" stop-color="var(--md-sys-color-primary)" stop-opacity="0.6" />
+                </linearGradient>
+                <filter id="layerShadow" x="-10%" y="-10%" width="120%" height="120%">
+                    <feDropShadow dx="0" dy="4" stdDeviation="4" flood-opacity="0.18" />
+                </filter>
+            </defs>
+            <rect width="280" height="150" fill="url(#bgGrad)" />
+            <path d="M-20,160 C60,100 120,120 180,80 C240,40 300,60 320,0 L320,160 Z" fill="url(#waveGrad2)" />
+            <path d="M 30 160 A 55 55 0 0 1 140 160" fill="none" stroke="var(--md-sys-color-primary-container)" stroke-width="12" filter="url(#layerShadow)" opacity="0.6" />
+            <path d="M 110 160 A 45 45 0 0 1 200 160" fill="none" stroke="var(--md-sys-color-secondary-container)" stroke-width="8" filter="url(#layerShadow)" opacity="0.4" />
+            <path d="M-40,160 C40,120 100,100 160,110 C220,120 280,70 300,30 L300,160 Z" fill="url(#waveGrad1)" filter="url(#layerShadow)" opacity="0.85" />
+            <path d="M 80 160 A 40 40 0 0 1 160 160" fill="none" stroke="#FFFFFF" stroke-width="5" filter="url(#layerShadow)" opacity="0.9" />
+            <circle cx="210" cy="40" r="20" fill="var(--md-sys-color-primary-container)" filter="url(#layerShadow)" opacity="0.7" />
+        </svg>
+      <% } %>
+      <div class="brand-content" style="z-index: 2;">
+        <a href="<%- url_for(theme.avatar_link) %>" class="avatar-wrap">
+          <% if (!useSvgAvatar) { %>
+            <img class="avatar" src="<%- url_for(avatarUrl) %>" alt="<%= config.author %>">
+          <% } else { %>
+            <!-- Adaptive vector-based color avatar -->
+            <svg class="avatar avatar-svg" viewBox="0 0 100 100" style="display: block; width: 64px; height: 64px;">
+                <defs>
+                    <linearGradient id="avatarGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stop-color="var(--md-sys-color-primary-container)" />
+                        <stop offset="100%" stop-color="var(--md-sys-color-secondary-container)" />
+                    </linearGradient>
+                    <linearGradient id="avatarGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stop-color="var(--md-sys-color-primary)" />
+                        <stop offset="100%" stop-color="var(--md-sys-color-secondary)" />
+                    </linearGradient>
+                    <filter id="avatarShadow" x="-10%" y="-10%" width="120%" height="120%">
+                        <feDropShadow dx="0" dy="2" stdDeviation="2" flood-opacity="0.15" />
+                    </filter>
+                </defs>
+                <circle cx="50" cy="50" r="48" fill="url(#avatarGrad1)" />
+                <circle cx="35" cy="35" r="22" fill="var(--md-sys-color-primary)" opacity="0.15" />
+                <circle cx="68" cy="42" r="18" fill="var(--md-sys-color-secondary)" opacity="0.2" />
+                <circle cx="55" cy="70" r="25" fill="var(--md-sys-color-primary)" opacity="0.12" />
+                <path d="M 30 72 A 20 20 0 0 1 70 72" fill="none" stroke="url(#avatarGrad2)" stroke-width="7" stroke-linecap="round" filter="url(#avatarShadow)" />
+                <circle cx="50" cy="52" r="14" fill="var(--md-sys-color-primary-container)" opacity="0.8" />
+                <circle cx="50" cy="52" r="10" fill="var(--md-sys-color-primary)" filter="url(#avatarShadow)" />
+                <circle cx="50" cy="52" r="5" fill="#FFFFFF" />
+            </svg>
+          <% } %>
+        </a>
+        <div class="introduce">
+          <h5 class="nickname"><%- config.author %></h5>
+        </div>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <nav class="drawer-nav">
+        <%
+          var menuItem, isActive = function(item) {
+              var pageUrl = url_for(page.path)
+              return item.url === '/' ? pageUrl === url_for(item.url + 'index.html') : _.startsWith(pageUrl, url_for(item.url))
+          };
+          for (var i in theme.menu) {
+            menuItem = theme.menu[i];
+          %>
+            <div class="drawer-nav-item-wrap<% if(isActive(menuItem)){ %> active<% } %>">
+              <a class="drawer-nav-item flex-row flex-middle" href="<%- url_for(menuItem.url) %>" <% if(menuItem.target){ %>target="_blank"<% } %> >
+                <% if (i === 'github') { %>
+                  <svg class="nav-icon-svg" viewBox="0 0 24 24" width="22" height="22" style="fill: currentColor; flex-shrink: 0;"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                <% } else { %>
+                  <span class="material-symbols-outlined nav-icon"><%= i %></span>
+                <% } %>
+                <%
+                var cnText = menuItem.text || _.startCase(i);
+                if (i === 'home') cnText = '首页';
+                else if (i === 'archive') cnText = '归档';
+                else if (i === 'sell') cnText = '标签';
+                else if (i === 'category') cnText = '分类';
+                %>
+                <span class="nav-text"><%= cnText %></span>
+              </a>
+            </div>
+        <% } %>
+      </nav>
+    </div>
+  </div>
+</aside>

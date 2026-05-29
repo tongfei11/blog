@@ -8,3 +8,4 @@ public/
 *.bak
 .github/github-deploy-key
 .github/github-deploy-key.pub
+source/.obsidian/

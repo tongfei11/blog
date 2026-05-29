@@ -1,0 +1,73 @@
+<%- partial('_partial/header', {
+    title: page.title,
+    hdClass: 'page-header'
+}) %>
+<%
+page.reward = 'reward' in page ? (theme.reward && page.reward) : theme.reward;
+page.slug = 'hexo-page-' + page.path.replace(/\/index\.html$/,'').split('/').join('-');
+%>
+<div class="container body-wrap">
+    <article class="page-article fade" itemprop="blogPage">
+        <div class="post-content page-content" id="page-content" itemprop="pageContent">
+            <%- page.content.replace(/<p>}<\/p>/g, '</div>')
+                .replace(/<p>@([\w-]+){<\/p>/g, function(match, $1){
+                return '<div class="'+ $1 +'">'
+            }) %>
+        </div>
+
+        <% if(theme.about && page.title === 'About'){ %>
+        <div class="md-card page-about-me flex-row">
+            <%
+              var avatarUrl = theme.avatar;
+              var hasCustomAvatar = theme.avatar && theme.avatar !== '/img/avatar.jpg' && theme.avatar !== '/img/avatar.png';
+              if (!hasCustomAvatar) {
+                  var githubUrl = theme.menu && theme.menu.github && theme.menu.github.url;
+                  if (githubUrl) {
+                      var match = githubUrl.match(/github\.com\/([^\/]+)/);
+                      if (match) {
+                          avatarUrl = 'https://github.com/' + match[1] + '.png';
+                          hasCustomAvatar = true;
+                      }
+                  }
+              }
+            %>
+            <a href="/" class="avatar-wrap">
+                <% if (hasCustomAvatar) { %>
+                    <img class="avatar" src="<%- url_for(avatarUrl) %>" alt="<%= config.author %>">
+                <% } else { %>
+                    <svg class="avatar avatar-svg" viewBox="0 0 100 100" style="display: block; width: 64px; height: 64px; border-radius: 50%;">
+                        <defs>
+                            <linearGradient id="avatarGrad1_p" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="var(--md-sys-color-primary-container)" />
+                                <stop offset="100%" stop-color="var(--md-sys-color-secondary-container)" />
+                            </linearGradient>
+                            <linearGradient id="avatarGrad2_p" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="var(--md-sys-color-primary)" />
+                                <stop offset="100%" stop-color="var(--md-sys-color-secondary)" />
+                            </linearGradient>
+                        </defs>
+                        <circle cx="50" cy="50" r="48" fill="url(#avatarGrad1_p)" />
+                        <circle cx="35" cy="35" r="22" fill="var(--md-sys-color-primary)" opacity="0.15" />
+                        <circle cx="68" cy="42" r="18" fill="var(--md-sys-color-secondary)" opacity="0.2" />
+                        <circle cx="55" cy="70" r="25" fill="var(--md-sys-color-primary)" opacity="0.12" />
+                        <path d="M 30 72 A 20 20 0 0 1 70 72" fill="none" stroke="url(#avatarGrad2_p)" stroke-width="7" stroke-linecap="round" />
+                        <circle cx="50" cy="52" r="14" fill="var(--md-sys-color-primary-container)" opacity="0.8" />
+                        <circle cx="50" cy="52" r="10" fill="var(--md-sys-color-primary)" />
+                        <circle cx="50" cy="52" r="5" fill="#FFFFFF" />
+                    </svg>
+                <% } %>
+            </a>
+            <div class="content flex-col">
+                <p class="author-name"><strong><%- config.author %></strong></p>
+                <p class="author-subtitle"><em><%- config.subtitle %></em></p>
+                <p class="author-desc"><%- theme.about %></p>
+            </div>
+            <%- partial('_partial/post/share-fab') %>
+        </div>
+        <% } %>
+
+        <%- partial('_partial/post/reward-btn') %>
+        <%- partial('_partial/post/comment', { post: page }) %>
+    </article>
+    <%- partial('_partial/post/reward') %>
+</div>
