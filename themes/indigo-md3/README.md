@@ -89,7 +89,7 @@ menu:
 
 ### 3. 博主基本信息
 ```yaml
-avatar: /img/avatar.jpg     # 头像路径
+avatar: /img/avatar.jpg     # 头像路径（若保持默认/留空，且下方配置了 GitHub 链接，则自动解析获取 GitHub 头像，否则展示自适应 MD3 矢量 SVG 头像）
 avatar_link: /              # 点击头像跳转地址
 brand: /img/brand.jpg       # 抽屉导航背景图
 favicon: /favicon.ico       # 浏览器标签栏图标路径
